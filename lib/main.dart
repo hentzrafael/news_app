@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/injection_container.dart';
 
 void main() {
+  initializeDependencies();
   runApp(const MyApp());
 }
 
