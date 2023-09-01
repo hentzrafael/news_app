@@ -20,7 +20,7 @@ class ArticleRepositoryImpl implements ArticleRepository{
       final httpResponse = await _newsApiService.getNewsArticles(
           apiKey: newsAPIKey, category: categoryQuery, country: countryQuery);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data);
+        return DataSuccess(httpResponse.data.where((element) => element.title!.isNotEmpty && element.description!.isNotEmpty).toList());
       } else {
         return DataFailed(DioException(
             error: httpResponse.response.statusMessage,
