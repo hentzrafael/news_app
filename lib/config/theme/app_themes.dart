@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 
-ThemeData theme(){
+ThemeData theme({dark=false}){
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
     fontFamily: 'Muli',
     appBarTheme: appBarTheme(),
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue,brightness: dark ? Brightness.dark : Brightness.light),
     useMaterial3: true,
   );
 }
 
 AppBarTheme appBarTheme(){
   return const AppBarTheme(
-    color: Colors.white,
     elevation: 0,
     centerTitle: true,
     iconTheme: IconThemeData(color: Color(0xff8b8b8b)),
-    titleTextStyle: TextStyle(color: Color(0xff8b8b8b), fontSize: 18),
   );
 }

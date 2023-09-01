@@ -22,16 +22,13 @@ class DailyNews extends StatelessWidget {
     return AppBar(
       title: const Text(
         'Daily News',
-        style: TextStyle(
-            color: Colors.black
-        ),
       ),
       actions: [
         GestureDetector(
           onTap: () => _onShowSavedArticlesViewTapped(context),
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 14),
-            child: Icon(Icons.bookmark, color: Colors.black),
+            child: Icon(Icons.bookmark),
           ),
         ),
       ],

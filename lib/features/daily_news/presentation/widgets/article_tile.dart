@@ -47,7 +47,6 @@ class ArticleWidget extends StatelessWidget {
               width: MediaQuery.of(context).size.width / 3,
               height: double.maxFinite,
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.08),
                   image: DecorationImage(
                       image: imageProvider,
                       fit: BoxFit.cover
@@ -105,7 +104,6 @@ class ArticleWidget extends StatelessWidget {
                 fontFamily: 'Butler',
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
-                color: Colors.black87,
               ),
             ),
 
