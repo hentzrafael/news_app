@@ -23,8 +23,12 @@ class MyApp extends StatelessWidget {
     child: MaterialApp(
       title: 'News App',
       theme: theme(),
+      darkTheme: theme(dark:true,),
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       home:  const DailyNews(),
-    ),);
+    ),
+    );
   }
 }
