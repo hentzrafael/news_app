@@ -8,27 +8,30 @@ import 'package:news_app/features/daily_news/data/models/article.dart';
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
 import 'package:news_app/features/daily_news/domain/repository/article_repository.dart';
 
-class ArticleRepositoryImpl implements ArticleRepository{
+class ArticleRepositoryImpl implements ArticleRepository {
   final NewsApiService _newsApiService;
   final AppDatabase _appDatabase;
 
-  ArticleRepositoryImpl(this._newsApiService,this._appDatabase);
+  ArticleRepositoryImpl(this._newsApiService, this._appDatabase);
 
   @override
-  Future<DataState<List<ArticleModel>>> getNewsArticles()async {
-    try{
+  Future<DataState<List<ArticleModel>>> getNewsArticles() async {
+    try {
       final httpResponse = await _newsApiService.getNewsArticles(
           apiKey: newsAPIKey, category: categoryQuery, country: countryQuery);
-      if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data.where((element) => element.title!.isNotEmpty && element.description!.isNotEmpty).toList());
+      if (httpResponse.statusCode == HttpStatus.ok) {
+        return DataSuccess(httpResponse.data!
+            .where((element) =>
+                element.title!.isNotEmpty && element.description!.isNotEmpty)
+            .toList());
       } else {
         return DataFailed(DioException(
-            error: httpResponse.response.statusMessage,
-            response: httpResponse.response,
+            error: httpResponse.statusMessage,
+            response: httpResponse,
             type: DioExceptionType.badResponse,
-            requestOptions: httpResponse.response.requestOptions));
+            requestOptions: httpResponse.requestOptions));
       }
-    } on DioException catch (e){
+    } on DioException catch (e) {
       return DataFailed(e);
     }
   }
@@ -40,11 +43,13 @@ class ArticleRepositoryImpl implements ArticleRepository{
 
   @override
   Future<void> removeArticle(ArticleEntity article) {
-    return _appDatabase.articleDAO.deleteArticle(ArticleModel.fromEntity(article));
+    return _appDatabase.articleDAO
+        .deleteArticle(ArticleModel.fromEntity(article));
   }
 
   @override
   Future<void> saveArticle(ArticleEntity article) {
-    return _appDatabase.articleDAO.insertArticle(ArticleModel.fromEntity(article));
+    return _appDatabase.articleDAO
+        .insertArticle(ArticleModel.fromEntity(article));
   }
 }
