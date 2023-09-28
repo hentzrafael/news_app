@@ -121,7 +121,10 @@ class ArticleWidget extends StatelessWidget {
                 const Icon(Icons.timeline_outlined, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  article!.publishedAt!,
+                  DateTime.parse(article!.publishedAt!)
+                      .toLocal()
+                      .toString()
+                      .substring(0, 10),
                   style: const TextStyle(
                     fontSize: 12,
                   ),

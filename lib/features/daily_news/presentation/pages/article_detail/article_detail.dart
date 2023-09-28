@@ -64,13 +64,15 @@ class ArticleDetailsView extends HookWidget {
           ),
 
           const SizedBox(height: 14),
-          // DateTime
           Row(
             children: [
               const Icon(Ionicons.time_outline, size: 16),
               const SizedBox(width: 4),
               Text(
-                article!.publishedAt!,
+                DateTime.parse(article!.publishedAt!)
+                    .toLocal()
+                    .toString()
+                    .substring(0, 10),
                 style: const TextStyle(fontSize: 12),
               ),
             ],
