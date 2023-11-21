@@ -1,16 +1,26 @@
-# news_app
+# News APP
 
-A new Flutter project.
+## Description
 
-## Getting Started
+This Flutter app displays the most read articles for the day. It fetches data from a backend API and presents it in a user-friendly manner.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Fetches and displays the most read articles for the day
+- Provides details about each article, including title and author.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repository: `git clone https://github.com/hentzrafael/news_app.git`
+2. Navigate to the project directory: `cd your-repo`
+3. Ensure you have Flutter installed: `flutter doctor`
+4. Install project dependencies: `flutter pub get`
+5. Run the app: `flutter run`
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
